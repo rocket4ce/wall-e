@@ -19,11 +19,10 @@
 
 $(document).on('turbolinks:load', function() {
 
-  console.log("hola");
   $('#comment_body').atwho({
     at: "@",
     data: "http://localhost:3000/get_user.json",
-    limit: 7
+    displayTpl: "<li class='hola'>${name}</li>"
   });
 
 })

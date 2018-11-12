@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  messagge: MyString
+  view: false
+  recive_user: 1
+  comment: one
+
+two:
+  messagge: MyString
+  view: false
+  recive_user: 1
+  comment: two
