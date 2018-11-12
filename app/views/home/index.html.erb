@@ -1,15 +1,16 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<% @comments.each do |c| %>
-  <%= c.user.email %>
-  <%= c.user.username %>
-  <p>
-    <%= c.body %>
-  </p>
-<% end %>
-
-<%= form_for @new_comment do |f| %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div id="comments">
+				<%= render partial: 'comments/comment', locals: {comments: @comments}  %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<%= form_for @new_comment, remote: true do |f| %>
+				<%= f.text_area :body %>
+				<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+</div>

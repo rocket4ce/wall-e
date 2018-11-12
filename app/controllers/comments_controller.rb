@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         SendNotificationJob.perform_later @comment
-        format.html { redirect_to root_path, notice: 'Haz creado un commentario' }
+        format.js
       else
         format.html { redirect_to root_path, error: 'No se ha creado el mensaje' }
       end

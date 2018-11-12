@@ -7,7 +7,11 @@ class NotificationsController < ApplicationController
 
   def update
     notification = Notification.find(params[:id])
-    notification.update_attributes(view: true)
+    if notification.update_attributes(view: true)
+      render json: {status: 200}
+    else
+      render json: {status: 500}
+    end
 
   end
 

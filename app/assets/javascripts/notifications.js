@@ -1,9 +1,10 @@
 $(document).on('turbolinks:load', function() {
   function notificaciones_html(data) {
-    var html = '<li>' +
+    var html = '<li class="new-notification">' +
     '<a href="'+data.comment_url+'">'+
       data.messagge +
     '</a>'+
+    '<a href="'+data.notification_url+'" id="read_notification"> Marcar como leido </a>'+
     '</li>';
     console.log(html);
     return html
@@ -27,6 +28,29 @@ $(document).on('turbolinks:load', function() {
   })
   .always(function(data) {
     console.log("complete"+ data);
+  });
+
+  $('body').on('click', '#read_notification',function(event) {
+    event.preventDefault();
+    var item = $(this).parent('li');
+    var total_notification = $('#total_notification')
+    var val_total_notification = total_notification.html();
+
+    $.ajax({
+      url: $(this).attr("href"),
+      type: 'PUT'
+    })
+    .done(function(data) {
+      $(item).toggleClass('new-notification');
+      total_notification.html(val_total_notification-1);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
   });
 
 

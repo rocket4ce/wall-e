@@ -19,6 +19,12 @@
 
 $(document).on('turbolinks:load', function() {
 
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
   $('#comment_body').atwho({
     at: "@",
     data: "http://localhost:3000/get_user.json",

@@ -1,0 +1,2 @@
+$('#comment_body').val('');
+$("<%= j render( partial: 'comments/item_comment', :locals => {c: @comment}) %>").prependTo('#comments');
