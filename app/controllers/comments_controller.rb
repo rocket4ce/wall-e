@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
   def create
     @comment = current_user.comments.new(comments_params)
     respond_to do |format|
