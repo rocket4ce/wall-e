@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   validates :username, format: { without: /\s/ }
 
+  has_many :comments, dependent: :destroy
+
 end
