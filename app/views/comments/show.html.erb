@@ -1,5 +1,9 @@
-<%= @comment.user.email %>
-<%= @comment.user.username %>
-<p>
-  <%= @comment.body %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="comment">
+        <%= render partial: 'comments/item_comment', locals: {c: @comment}  %>
+      </div>
+    </div>
+  </div>
+</div>
