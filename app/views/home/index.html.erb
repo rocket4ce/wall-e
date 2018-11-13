@@ -1,0 +1,16 @@
+<h1>Home#index</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div id="comments">
+				<%= render partial: 'comments/comment', locals: {comments: @comments}  %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<%= form_for @new_comment, remote: true do |f| %>
+				<%= f.text_area :body %>
+				<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+</div>

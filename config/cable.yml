@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: wall-e_production
+  url: redis://redistogo:599639117e2e8af6d4f36d71bb0f96ee@spinyfin.redistogo.com:11329/

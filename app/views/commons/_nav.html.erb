@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Wall - E", root_url, class:"navbar-brand" %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to "Sign in", new_user_session_path %><br />
+          </li>
+
+          <li>
+            <%= link_to "Sign up", new_user_registration_path %><br />
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Notificaciones <span id="total_notification"></span> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" id="notifications">
+
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container-fluid -->
+</nav>
