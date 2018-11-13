@@ -14,6 +14,10 @@ class CommentPolicy
     authorize_role
   end
 
+  def destroy?
+    authorize_role
+  end
+
   private
 
     def authorize_role

@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   default_scope { order(created_at: :desc) }
   belongs_to :user
-  has_many :notifications
+  has_many :notifications, dependent: :destroy
 
   def send_notification
       read_words.each do |word|

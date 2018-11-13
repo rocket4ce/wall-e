@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum roles: [:user, :admin]
+  enum role: [:user, :admin]
 
   validates :username, format: { without: /\s/ }
 
