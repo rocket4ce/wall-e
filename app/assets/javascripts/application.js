@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#comment_body').atwho({
     at: "@",
-    data: "http://localhost:3000/get_user.json",
+    data: "/get_user.json",
     displayTpl: "<li class='hola'>${name}</li>"
   });
 
