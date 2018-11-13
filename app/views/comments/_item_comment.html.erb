@@ -5,4 +5,9 @@
   <p>
     <%= c.body %>
   </p>
+
+  <% if current_user == c.user %>
+    <%= link_to "Editar Comentario", "#" %>
+    <%= link_to "Eliminar Comentario", "#" %>
+  <% end %>
 </div>

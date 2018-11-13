@@ -1,8 +1,21 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_comment_id, only:[:edit, :update, :delete]
 
   def show
     @comment = Comment.find(params[:id])
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
   def create
@@ -21,6 +34,11 @@ class CommentsController < ApplicationController
 
   def comments_params
     params.require(:comment).permit(:body)
+  end
+
+  def set_comment_id
+    @comment = Comment.find(params[:id])
+    authorize @comment
   end
 
 end
