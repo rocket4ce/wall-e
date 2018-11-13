@@ -4,4 +4,5 @@ class SendNotificationJob < ApplicationJob
   def perform(comment)
     comment.send_notification
   end
+
 end

@@ -8,6 +8,5 @@ Rails.application.routes.draw do
 
   get 'get_user', to: 'users#get_users'
 
-  mount ActionCable.server => '/cable'
 
 end
