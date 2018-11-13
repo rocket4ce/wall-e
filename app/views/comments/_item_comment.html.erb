@@ -1,13 +1,19 @@
 <div class="comment">
 
-  <%= c.user.email %>
-  <%= c.user.username %>
-  <p>
-    <%= c.body %>
-  </p>
-
-  <% if current_user == c.user || current_user.admin? %>
-    <%= link_to "Editar Comentario", edit_comment_url(c) %>
-    <%= link_to 'Eliminar', comment_path(c), method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este comentario?' } %>
-  <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Usuario <%= c.user.username %>
+    </div>
+    <div class="panel-body">
+      <p>
+        <%= c.body %>
+      </p>
+    </div>
+    <div class="panel-footer">
+      <% if current_user == c.user || current_user.admin? %>
+        <%= link_to "Editar Comentario", edit_comment_url(c), class:"btn btn-primary" %>
+        <%= link_to 'Eliminar', comment_path(c), method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este comentario?' }, class:"btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
 </div>

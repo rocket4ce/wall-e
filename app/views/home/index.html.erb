@@ -1,5 +1,6 @@
-<h1>Home#index</h1>
 <div class="container">
+
+	<h1>Wall - E</h1>
 	<div class="row">
 		<div class="col-md-6">
 			<div id="comments">
@@ -8,8 +9,11 @@
 		</div>
 		<div class="col-md-6">
 			<%= form_for @new_comment, remote: true do |f| %>
-				<%= f.text_area :body %>
-				<%= f.submit %>
+			  <div class="form-group">
+			    <%= f.label "Escribe un lindo comentario" %>
+			    <%= f.text_area :body, class:"form-control" %>
+			  </div>
+			  <%= f.submit class:"btn btn-primary" %>
 			<% end %>
 		</div>
 	</div>
